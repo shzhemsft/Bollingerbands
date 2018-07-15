@@ -57,6 +57,28 @@ Yay! The script seems to be working. Here is the output image:
 
 How about we make this plot more readable by shading the critical areas between the upper and lower bands? Matplotlib can handle plot shading as well. Let’s tweak our basic plot with the help of Matplotlib’s fill_between method.
 
+```python
+# set style, empty figure and axes
+plt.style.use('fivethirtyeight')
+fig = plt.figure(figsize=(12,6))
+ax = fig.add_subplot(111)
+
+# Plot shaded Bollinger Band for Microsoft
+x_axis = data['timestamp'].values
+ax.fill_between(x_axis, data['upper band'], data['lower band'], color='grey')
+
+# Plot Adjust Closing Price and Moving Averages
+ax.plot(x_axis, data['adjusted_close'], color='blue', lw=2)
+ax.plot(x_axis, data['20 day moving average'], color='black', lw=2)
+
+# Set Title & Show the Image
+ax.set_title('Bollinger Band For Microsoft')
+ax.set_xlabel('Date (Year/Month)')
+ax.set_ylabel('Price(USD)')
+ax.legend()
+plt.show()
+```
+
 Finally the shaded Bollinger Band is ready. Let’s take a look:
 
 ![alt text](https://i.imgur.com/acaAUMk.png "Bollinger bands Figure 2")
