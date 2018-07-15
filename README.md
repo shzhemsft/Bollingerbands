@@ -17,5 +17,55 @@ Traders typically use this tool to spot trading opportunities through looking ou
 
 It is worthwhile mentioning that the number of days under consideration for the moving average is entirely up to the analyst. That being said, it is quite common to see 20/21 day moving averages in practice as there are usually 20/21 trading days in a month.
 
+```
+Middle Band = 20 day moving average
+Upper Band = 20 day moving average + (20 Day standard deviation of price x 2) 
+Lower Band = 20 day moving average - (20 Day standard deviation of price x 2)
+```
+
+# Bollinger Band in Python
+
+Let’s begin by making a small script that calls for the Adjusted Closing Prices of Microsoft from the [Alpha Vantage](https://www.alphavantage.co/) Stock API. The script then calculates the upper, moving average and lower bands. Finally, the 20-day Bollinger Band for Microsoft is visualised by the script.
+
+```python
+# import needed libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+raw = pd.read_csv('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&outputsize=full&apikey=Q7B8REQMCEOPI1CZ&datatype=csv')
+data = pd.DataFrame(raw)
+data['timestamp'] = data['timestamp'].astype('datetime64[ns]')
+data = data.sort_values(by='timestamp',ascending=True)
+data = data.tail(500)
+
+data['20 day moving average'] = data['adjusted_close'].rolling(window=20).mean()
+data['20 day moving std'] = data['adjusted_close'].rolling(window=20).std()
+data['upper band'] = data['20 day moving average'] + (data['20 day moving std'] * 2)
+data['lower band'] = data['20 day moving average'] - (data['20 day moving std'] * 2)
+
+# 20 Day Bollinger Band for Microsoft
+data.plot(x="timestamp",y=["adjusted_close", "20 day moving average", "upper band","lower band"])
+plt.title('Bollinger Band for Microsoft Stock')
+plt.ylabel('Price (USD)')
+plt.xlabel('Time')
+plt.show()
+```
+
+Yay! The script seems to be working. Here is the output image:
+
+![alt text](https://i.imgur.com/8NrM6Lk.png "Bollinger bands Figure 1")
+
+How about we make this plot more readable by shading the critical areas between the upper and lower bands? Matplotlib can handle plot shading as well. Let’s tweak our basic plot with the help of Matplotlib’s fill_between method.
+
+Finally the shaded Bollinger Band is ready. Let’s take a look:
+
+![alt text](https://i.imgur.com/acaAUMk.png "Bollinger bands Figure 2")
+
+That look better and more readable doesn’t it? The grey area shows the full squeeze effect of upper and lower bands. The adjusted closing prices and its 20 trading days moving average can be seen and read better.
+
+
+
+
+
 
 
