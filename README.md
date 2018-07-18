@@ -1,5 +1,16 @@
 # ~~Data science~~ Stock trading with Python 
 
+First, please make sure that your pandas version is greater than 0.20. 
+
+```
+pip show pandas
+```
+And update if necessary: 
+
+```
+pip install --upgrade pandas
+```
+
 ## What are Bollinger Bands?
 
 Created in the early 80s and named after its developer, Bollinger Bands represent a key technical trading tool for financial traders. Bollinger bands are plotted by two (2) standard deviations (a measure of volatility) away from the moving average of a price. Bollinger Bands allow traders to monitor and take advantage of shifts in price volatilities. Let’s examine the main components of this tool.
