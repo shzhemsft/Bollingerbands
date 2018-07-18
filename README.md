@@ -144,7 +144,7 @@ ax.legend()
 plt.show()
 ```
 
-![alt text](https://imgur.com/a/V5Mp0Mq "Bollinger bands Bitcoin")
+![alt text](https://i.imgur.com/69mzJww.png "Bollinger bands Bitcoin")
 
 
 
