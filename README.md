@@ -1,4 +1,4 @@
-# ~~Data science~~ Stock trading with Python 
+# Stock visualization and trading strategies with Python 
 
 First, please make sure that your pandas version is greater than 0.20. 
 
