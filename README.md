@@ -195,7 +195,7 @@ The MACD also has a zero line to indicate positive and negative values. The MACD
 
 Remember the "trading dashboards" you typically see in movies like the Wolf of the Wall Street?
 
-![alt text](https://https://i.pinimg.com/736x/57/01/64/570164b0670e7467df28baf925ebe8db--monitor-pc-multi-monitor-setup.jpg "TIs")
+![alt text](https://i.imgur.com/x6DPo7m.jpg "TIs")
 
 We are now ready to build a mini-dashboard that overlaps a suite of technical indicators on top of stock price and volume. 
 
