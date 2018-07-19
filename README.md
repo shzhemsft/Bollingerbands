@@ -109,9 +109,9 @@ Inspect your own graph of Microsoft stock prices with the following questions in
 + Are dips below the lower band *always* a buy signal?
 + Overall, can we make profits by trading on the Bollinger Band?
 
-## Bonus points: Bollinger Bands for Bitcoin
+## Bonus point 1: Bollinger Bands for Bitcoin
 
-Using the same toolkit, can you generate the Bollinger Band for Bitcoin and generate your own trading strategy based on the chart patterns? 
+Using the same toolkit, can you generate the Bollinger Band for Bitcoin and formulate your own trading strategy based on the chart patterns? 
 + Tip 1: Take a look at the cryptocurrency documentation on Alpha Vantage and try to download a sample CSV output: https://www.alphavantage.co/documentation/#currency-daily
 + Tip 2: We would like to look up Bitcoin (symbol = BTC) price movement in the US market (market = USD)
 + Tip 3: Unlike stocks, cryptocurrencies tend to be much more volatile (and unpredictable). Is Bollinger Band still a good signal for cryptocurrencies? 
@@ -157,7 +157,7 @@ plt.show()
 
 ![alt text](https://i.imgur.com/69mzJww.png "Bollinger bands Bitcoin")
 
-## Bonus Points 2: other trading signals
+## Bonus Point 2: other trading signals
 
 In the language of quantitative investing, Bollinger Band is part of a family of trading signals called **technical indicators**. A technical indicator is a mathematical calculation based on historic price and volume information that aims to forecast financial market direction. Technical indicators are fundamental part of technical analysis and are typically plotted as a chart pattern to try to predict the market trend. Indicators generally overlay on price chart data to indicate where the price is going, or whether the price is in an "overbought" condition or an "oversold" condition. 
 
@@ -191,6 +191,8 @@ The moving average convergence divergence (MACD) is a technical momentum indicat
 
 The MACD also has a zero line to indicate positive and negative values. The MACD has a positive value whenever the 12-period EMA is above the 26-period EMA and a negative value when the 12-period EMA is below the 26-period EMA.
 
+### Putting everything together
+
 Below is a Python snippet that plots SMA, RSI, and MACD on top of the raw price and volume of the Microsoft stock. 
 
 Before we proceed, 
@@ -202,7 +204,6 @@ pip install mpl_finance
 ### Sample code
 
 ```python
-# THIS VERSION IS FOR PYTHON 2 #
 import urllib2
 import time
 import datetime
